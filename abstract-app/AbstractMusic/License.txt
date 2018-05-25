@@ -1,0 +1,5 @@
+Abstract Music app is licensed under the MIT license.
+Copyright (C) 2018 Ander Areitio, Leire Barainka and Borja Turiel for Abstract Music Project - All Rights Reserved
+Permission to copy and modify is granted under the MIT license
+Revisions:
+V 1.0 -> Basic functionality
