@@ -1,0 +1,18 @@
+-songs -> Bi array dituen array bat bueltatzen du, bat token-aren erantzunarekin, eta bestea abestien informazioarekin
+-albums -> Bi array dituen array bat bueltatzen du, bat token-aren erantzunarekin, eta bestea diskoen informazioarekin
+-artists -> Bi array dituen array bat bueltatzen du, bat token-aren erantzunarekin, eta bestea artisten informazioarekin
+-genres -> Bi array dituen array bat bueltatzen du, bat token-aren erantzunarekin, eta bestea generoen informazioarekin
+-playlists -> Bi array dituen array bat bueltatzen du, bat token-aren erantzunarekin, eta bestea erreproduzkio listen informazioarekin
+-subgenres -> Bi array dituen array bat bueltatzen du, bat token-aren erantzunarekin, eta bestea subgeneroen informazioarekin
+-subgenresbygenre -> Bi array dituen array bat bueltatzen du, bat token-aren erantzunarekin, eta bestea subgeneroen informazioarekin. Kasu honetan, generoen ID bat bidaltzen ez bada, bigarren array-a hutsik joango da.  
+-artistsbyalbum -> Bi array dituen array bat bueltatzen du, bat token-aren erantzunarekin, eta bestea artisten informazioarekin. Kasu honetan, albumen ID bat bidaltzen ez bada, bigarren array-a hutsik joango da.
+-albumsbyartist -> Bi array dituen array bat bueltatzen du, bat token-aren erantzunarekin, eta bestea diskoen informazioarekin. Kasu honetan, artistaren ID bat bidaltzen ez bada, bigarren array-a hutsik joango da.
+-songsbyalbum -> Bi array dituen array bat bueltatzen du, bat token-aren erantzunarekin, eta bestea abestien informazioarekin. Kasu honetan, diskoaren ID bat bidaltzen ez bada, bigarren array-a hutsik joango da.
+-songsbyartist -> Bi array dituen array bat bueltatzen du, bat token-aren erantzunarekin, eta bestea abestien informazioarekin. Kasu honetan, artistaren ID bat bidaltzen ez bada, bigarren array-a hutsik joango da.
+-songsbysubgenre -> Bi array dituen array bat bueltatzen du, bat token-aren erantzunarekin, eta bestea abestien informazioarekin. Kasu honetan, subgeneroaren ID bat bidaltzen ez bada, bigarren array-a hutsik joango da.
+-artistsbygenre -> Bi array dituen array bat bueltatzen du, bat token-aren erantzunarekin, eta bestea artisten informazioarekin. Kasu honetan, generoaren ID bat bidaltzen ez bada, bigarren array-a hutsik joango da.
+-registeruser -> Erabiltzailearen izena, email-a eta pasahitza bidaltzen zaizkio, datu hauek konprobatu egiten ditu, eta ondoren datu basean gordetzen du datua. Azkenik, bezeroari array bat bueltatzen dio erantzun moduan.
+-login -> Erabiltzailearen izena eta pasahitza pasatzen zaizkio, datu hauek konprobatu egiten ditu, datuak ondo badaude, token-a bueltazen du, bestela ez du tokenik bueltatzen.
+-playsong -> Erabiltzaileak token-a pasatzen dio, eta API-ak erabiltzaileak eskatutako abestia pasatzen dio bezeroari. Abestiaren ID-a pasatzen ez bazaio, ez dio abestirik bidaliko
+-songinformation -> Bi array dituen array bat bueltatzen du, bat token-aren erantzunarekin, eta bestea abestiaren datu guztiekin, artista eta disko-a barne. Kasu honetan, eskatutakoaren ID bat bidaltzen ez bada, bigarren array-a hutsik joango da.  
+-albumsbysubgenre -> Bi array dituen array bat bueltatzen du, bat token-aren erantzunarekin, eta bestea diskoen informazioarekin. Kasu honetan, generoaren ID bat bidaltzen ez bada, bigarren array-a hutsik joango da.  

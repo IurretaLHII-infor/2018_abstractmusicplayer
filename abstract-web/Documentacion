@@ -1,0 +1,83 @@
+Hasteko, behar ditugun paketeak instalatuko ditugu
+
+apt-get install apache2 libapache2-mod-php php php-mysql mariadb-server mariadb-client
+
+Mariadb zerbitzuaren arazoa konpontzeko
+
+sudo mysql -u root
+use mysql;
+update user set plugin='' where User='root';
+flush privileges;
+exit;
+
+Taulak eta datuak mysql-ra inportatu(root moduan)
+
+mysql < Taulak.sql
+
+mysql abstract < Datuak.sql
+
+/var/www/html/avatars karpetari baimenak aldatu behar dizkiogu argazkiak igo ahal izateko
+
+sudo chmod 733 /var/www/html/avatars
+
+/etc/apache2.conf
+
+<VirtualHost *:80>
+ServerName www.abstract.eus
+DocumentRoot /var/www/abstract
+ErrorDocument 403 "403 - Ez daukazu baimenik gune hau ikusteko"
+ErrorDocument 404 "404 - Bilatzen zabizena txarto idatzita dago edo ez da$
+<Directory /var/www/abstract>
+Options Indexes
+</Directory>
+</VirtualHost>
+
+
+baimenak eman
+
+chown -R www-data:www-data /var/www/abstract
+
+
+
+
+
+
+
+
+
+
+
+mysql erabiltzaile berria sortu eta baimenak eman
+
+create user abstract@localhost;
+grant select on abstract.* to abstract@localhost;
+grant update,insert on abstract.users to abstract@localhost;
+
+
+SSL
+
+sudo a2enmod ssl
+
+sudo service apache2 restart
+
+sudo aptitude install openssl
+
+LOGIN HTTPS
+
+a2enmod rewrite
+
+
+
+
+
+
+TWIG
+
+Instalatu composer paketea twig instalatzeko
+
+sudo apt install composer
+
+Ondoren, twig instalatu
+
+composer require "twig/twig:^2.0"
+
