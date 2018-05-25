@@ -32,6 +32,27 @@ flush privileges;
 exit;
 ```
 
+After this, we clone the project, and place the files of abstract-web in the corresponding place
+
+```bash
+cd /var/www/html
+git clone https://github.com/IurretaLHII-infor/2018_abstractmusicplayer.git
+```
+
+Once the web page is in our server, we have to move the MyDB.php file outside of the public access
+
+```bash
+mv /var/www/html/MyDB.php ..
+```
+
+Once all the necesary packages and files to run the web are installed, we need to install a library to parse JTW. For that, we will use [php-jwt](https://github.com/firebase/php-jwt), to install it, first we need to install composer
+
+```bash
+apt-get install composer
+```
+
+We then move to the 
+
 ## License
 
 The MIT License
