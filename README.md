@@ -8,7 +8,7 @@ This repository contains the configuration of the server, the web page, the appl
 
 This was tested in a Debian server system, and, as such, all the commands and information apply to that system and its derivatives. The application should work in any distribution which had a web server and PHP in a version newer than 5.3.0, but it is not guaranteed.
 
-** Dependencies **
+* Dependencies *
 
 * Apache or Nginx
 * PHP 5.3.0 or higher
@@ -25,11 +25,11 @@ apt-get install apache2 libapache2-mod-php php php-mysql mariadb-server mariadb-
 MariaDB in Debian has a problem which affects login using PHP or using another user which is not root, to fix that we do the following:
 
 ```
-sudo mysql -u root
-use mysql
-update user set plugin='' where User='root'
-flush privileges
-exit
+sudo mysql -u root;
+use mysql;
+update user set plugin='' where User='root';
+flush privileges;
+exit;
 ```
 
 ## License
