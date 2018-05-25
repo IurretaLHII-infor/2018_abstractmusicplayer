@@ -1,0 +1,63 @@
+##Gure zerbitzarira ssh moduan sartzeko aukera nahai dugu, API-an edo web orrian aldaketak egin behar badira aldaketa hauek egin ahal izateko. Zerbitzari hau interneten dagoenez, ez genuen nahi pasahitz bidez sartu ahal izatea, beraz klabeak martxan jarriko ditugu internetetik, eta LAN sarean pasahitzak baimenduko ditugu.
+##Lehenik eta behin ssh klabeak sortuko ditugu, horretarako hurrengo komando exekutatuko dugu:
+
+ssh-keygen
+
+##Hemen eskatzen dizkigun aukerak beteko ditugu, klabearen izena eta pasahitza(Nahi badugu) sartuko ditugu eta horrela klabea sortu egingo da. Klabe hau /home/user/.ssh karpeta barruan sortuko dugu, klabe guztiak leku berean edukitzeko.
+##Behin klabea sortuta dugula, bi klabe izango ditugu, "klabe" eta "klabe.pub", bat pribatua eta bestea publikoa. Klabe pribatu ez dugu partekatuko, klabe publikoa da zerbitzariarekin partekatuko duguna.
+##Hori egiteko, lehenik eta behin klabe publikoaren barruko guztia kopiatuko dugu, eta ssh bidez konektatuko gara zerbitzaria. Klabea zerbitzari barruan /home/user/.ssh/authorized_keys barruan kopiatuko dugu, horretarako:
+
+echo "$publickey" >> /home/$user/.ssh/authorized_keys
+
+##Hau egin ondoren, gure klabe pribatua konfiguratuko dugu gure sisteman, horretarako /home/user/.ssh/config fitxategia sortu edo editatuko dugu, eta barruan hurrengoa sartuko dugu:
+
+Host $serverip
+    IdentityFile /home/$user/.ssh/$privatekey
+
+##Kasu honetan klabe pribatua aukeratuko dugu, ".pub" extensioa ez duena
+##Hau egin ondoren ssh konexioa klabez funtzionatuko beharko luke, horretarako konektatzen saiatuko gara:
+
+ssh $user@$ip
+
+##Klabea ondo badago, ez digu pasahitzik eskatuko.
+##Behin klabea sartuta daukagula, pasahitzezko login-a desaktibatu egingo dugu generalean, horretarako /etc/ssh/sshd_config barruan , goiko partean, hurrengoa sartuko dugu:
+
+PasswordAuthentication no
+
+##Hau eginda, ezin da inor konektatu klabeen bidez ez bada. Gure kasuan, LAN saretik pasahitzarekin sartzea nahi dugu, beraz, /etc/ssh/sshd_config barruan, azpiko partean, hurrengoa jarriko dugu:
+
+Match Address $sareip/$saremaskara
+    PasswordAuthentication yes
+
+##Hau guztia egin ondoren, internetetik bakarrik klabearekin eta LAN saretik pasahitzarekin logueatu izan ahalko dira erabiltzaileak
+##Erabiltzailearen login-a guk bakarrik erabiltzaile batekin egin nahi dugu, beraz erabiltzaile hori bakarrik baimenduko dugu ssh konexioetarako. Horretarako /etc/ssh/sshd_config fitxategian sartuko gara, eta bertan hurrengoa idatziko dugu:
+
+AllowUsers $user
+
+##Honetaz gain, segurtasun aldetik garrantzitsua da root erabiltzailearen login-ak kentzea, horretarako /etc/ssh/sshd_config fitxategian hau idatziko dugu:
+
+PermitRootLogin no
+
+##Ssh gainera, segurtasun kopiak gordetzeko ere erabiliko dugu, Raspberry Pi batetik konexioa egingo da eta SCP bidez kopitatuko dira Raspberry-ra
+##Segurtasun kopiak egiteko zerbitzarian erabiltzaile berri bat sortuko dugu
+
+useradd abstractbakcup
+
+##Bere home karpeta sortu eta chown egin
+
+mkdir /home/abstractbackup
+chown abstractbackup:abstractbackup /home/abstractbackup
+
+##Erabiltzaile hau bakarrik kopiak egiteko erabiliko dugu, beraz ez dugu nahi login-a egitea, baina behar dugu "scp" komando exekutatu ahal izatea. Hau konpontzeko, "rssh" paketea instalatuko dugu
+
+apt install rssh
+
+##Pakete honen bitartez, erabiltzaile honi "scp" komandoa bakarrik exekutatzen utziko diogu. Horretarako, /etc/passwd fitxategira joango gara, eta bertan hurrengoa idatziko dugu azkenean
+
+/usr/bin/rssh
+
+##Horretaz gain, scp baimentzeko, /etc/rssh.conf fitxategira joango gara, eta hurrengo aukera deskomentatuko dugu:
+
+allowscp
+
+##Hau guztia eginda, gure erabiltzaileak scp komandoa bakarrik erabili ahalko du

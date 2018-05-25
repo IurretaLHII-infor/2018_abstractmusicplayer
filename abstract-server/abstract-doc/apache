@@ -1,0 +1,55 @@
+##Debian eta Ubuntu sistemetan datorren Apache konfigurazioa defektuz nahiko ondo dator, hainbat gauza jada debekatuta ditu eta konfigurazio nahiko egokia da. Hala ere, honen gainean hainbat gauza egin ditzakegu hau apur bat gehiago hobetzeko. Hasteko, /etc/apache2/conf-enabled/security.conf fitxategira joango gara, eta hemen hainbat gauza aldatuko ditugu. Hasteko, zerbitzariaren apache bertsioa eta sistema eragilea ez agertzea errore orrietan, horretarako hurrengoa idatziko dugu gure konfigurazioan:
+
+ServerTokens Prod
+ServerSignature Off
+
+##Eta Apache zerbitzaria reiniziatuko dugu:
+
+systemctl restart apache2
+
+##Honetaz gain, defektuz Apachek inode-a bueltatu dezake eskakizun batekin, honek arriskua izan dezake, beraz kendu egingo dugu
+
+##Apache defektuz Apache erabiltzailearekin exekutatzen da. Guk, erabiltzaile berri bat sortuko dugu Apache erabiltzeko, pribilegio gutxirekin. Horretarako:
+
+groupadd torosentado
+useradd –G torosentado torosentado
+
+##Erabiltzaile honek ezin izango du login egin, segurtasuna mantentzeko, horretarako /etc/passwd fitxategia editatuko dugu. Bertan, torosentado erabiltzailea aurkitu eta eta bertan, /bin/bash dagoen tokian, hurrengoa idatziko dugu:
+
+/usr/sbin/nologin
+
+##Karpetaren baimenak aldatuko ditugu, erabiltzaile berri horri baimenak emateko:
+
+chown -R torosentado:torosentado /home/sasiroot/abstract
+
+##Behin hau eginda, Apache erabiltzaile horrekin erabiltzeko konfiguratuko dugu. Horretarako, /etc/apache2/apache2.conf fitxategira joango gara, eta bertan hurrengoa jarriko dugu:
+
+User apache 
+Group apache
+
+##Eta Apache zerbitzaria reiniziatuko dugu:
+
+systemctl restart apache2
+
+##Hau berifikatzeko hurrengo komandoa exekutatuko dugu
+
+ps -ef | grep apache2
+
+##Hemen ikusi dezakegunez, ondo dago exekutatzen
+
+root       502     1  0 08:56 ?        00:00:00 /usr/sbin/apache2 -k start
+
+##Defektuz, Apachek .htaccess fitxategi bat erabiltzea baimentzen du(mod_rewrite erabiltzen bada, guk egiten dugun moduan), hau arriskutsua izan ahal da, beraz /etc/apache2/apache2.conf fitxategian ditugun <Directory> guztietan, hau egingo dugu:
+
+AllowOverride None
+
+##Guk Override hau egingo dugu, baina erabiliko dugun VirtualHost-ean, bakarrik http eskakizunak https-ra pasatzeko.
+
+##Behin ssl zertifikatua instalatuta dugula(Certbot-ekin, lehen azaldu moduan), https edukiko dugu gure web orrian, baina http eskakizunak ere egin ahal daitezke. Hau horrela utzi daiteke, baina segurtasun hobeagoa dauka https bakarrik erabili ahal bada, beraz guk trafiko guztia https-ra bidaliko dugu.
+##Horretarako, gure VirtualHost-ean, hurrengoa jarriko dugu:
+
+<VirtualHost *:80>
+    RewriteEngine on                                                                                                                    RewriteCond %{SERVER_NAME} =abstractmusic.iurretalhi.eus                                                                            RewriteRule ^ https://%{SERVER_NAME}%{REQUEST_URI} [END,NE,R=permanent] 
+</VirtualHost>
+
+##Honek egingo duena da http moduan eskatzen duzuna https moduan bueltatu, adibidez, http://abstractmusic.iurretalhi.eus/songs.php eskatzen badugu, https://abstractmusic.iurretalhi.eus/songs.php-ra bidaliko gaitu

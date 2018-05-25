@@ -1,0 +1,100 @@
+##============##
+##LETS ENCRYPT##
+##============##
+
+#Certbot erabiliko dugu, honela gero zertifikatua berritzeko automatizatu ahal dugulako modu erraz batean. Horretarako, "backport"-ak habilitatu behar ditugu. Hau egiteko, "/etc/apt/sources.list" editatuko dugu, eta hurrengo lerroa jarriko dugu
+
+deb http://ftp.debian.org/debian stretch-backports main
+
+#Hau egin ondoren, certbot instalatzeko hainbat pakete instalatuko ditugu
+
+sudo apt-get install python-certbot-apache -t stretch-backports
+
+#Beharrezko guztia egin ondoren, certbot exekutatuko dugu. webroot modulu bat da, ez da aldatu behar
+
+sudo certbot --authenticator webroot --installer apache
+
+##===================##
+##CERTBOT INSTALAZIOA##
+##===================##
+
+Plugins selected: Authenticator webroot, Installer apache
+Enter email address (used for urgent renewal and security notices) (Enter 'c' to
+cancel): abstractmusicplayer@gmail.com
+
+
+-------------------------------------------------------------------------------
+Please read the Terms of Service at
+https://letsencrypt.org/documents/LE-SA-v1.2-November-15-2017.pdf. You must
+agree in order to register with the ACME server at
+https://acme-v01.api.letsencrypt.org/directory
+-------------------------------------------------------------------------------
+(A)gree/(C)ancel: A
+
+
+-------------------------------------------------------------------------------
+Would you be willing to share your email address with the Electronic Frontier
+Foundation, a founding partner of the Let's Encrypt project and the non-profit
+organization that develops Certbot? We'd like to send you email about EFF and
+our work to encrypt the web, protect its users and defend digital rights.
+-------------------------------------------------------------------------------
+(Y)es/(N)o: Y
+
+
+No names were found in your configuration files. Please enter in your domain
+name(s) (comma and/or space separated)  (Enter 'c' to cancel): abstractmusic.iurretalhi.eus
+Obtaining a new certificate
+Performing the following challenges:
+http-01 challenge for abstractmusic.iurretalhi.eus
+Input the webroot for abstractmusic.iurretalhi.eus: (Enter 'c' to cancel): /var/www/html
+Waiting for verification...
+Cleaning up challenges
+Created an SSL vhost at /etc/apache2/sites-available/000-default-le-ssl.conf
+Deploying Certificate for abstractmusic.iurretalhi.eus to VirtualHost /etc/apache2/sites-available/000-default-le-ssl.conf
+Enabling available site: /etc/apache2/sites-available/000-default-le-ssl.conf
+
+
+Please choose whether or not to redirect HTTP traffic to HTTPS, removing HTTP access.
+-------------------------------------------------------------------------------
+1: No redirect - Make no further changes to the webserver configuration.
+2: Redirect - Make all requests redirect to secure HTTPS access. Choose this for
+new sites, or if you're confident your site works on HTTPS. You can undo this
+change by editing your web server's configuration.
+-------------------------------------------------------------------------------
+Select the appropriate number [1-2] then [enter] (press 'c' to cancel): 2    
+
+
+-------------------------------------------------------------------------------
+Congratulations! You have successfully enabled
+https://abstractmusic.iurretalhi.eus
+
+You should test your configuration at:
+https://www.ssllabs.com/ssltest/analyze.html?d=abstractmusic.iurretalhi.eus
+-------------------------------------------------------------------------------
+
+IMPORTANT NOTES:
+ - Congratulations! Your certificate and chain have been saved at:
+   /etc/letsencrypt/live/abstractmusic.iurretalhi.eus/fullchain.pem
+   Your key file has been saved at:
+   /etc/letsencrypt/live/abstractmusic.iurretalhi.eus/privkey.pem
+   Your cert will expire on 2018-05-20. To obtain a new or tweaked
+   version of this certificate in the future, simply run certbot again
+   with the "certonly" option. To non-interactively renew *all* of
+   your certificates, run "certbot renew"
+ - Your account credentials have been saved in your Certbot
+   configuration directory at /etc/letsencrypt. You should make a
+   secure backup of this folder now. This configuration directory will
+   also contain certificates and private keys obtained by Certbot so
+   making regular backups of this folder is ideal.
+ - If you like Certbot, please consider supporting our work by:
+
+
+##=============================##
+##CERTBOT AUTOMATIKOKI RENOBATU##
+##=============================##
+
+##Crontab bat egingo dugu zertifikatuak renobatzeko. Crontab hau egunero exekutatuko da, eta bakarrik renobatuko du 15 egun falta badira. Beraz, "/etc/crontab" fitxategia editatuko dugu, eta bertan hurrengoa idatziko dugu
+
+
+0 0 * * 1   root    certbot renew
+
