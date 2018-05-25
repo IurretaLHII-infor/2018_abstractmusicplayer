@@ -8,7 +8,7 @@ This repository contains the configuration of the server, the web page, the appl
 
 This was tested in a Debian server system, and, as such, all the commands and information apply to that system and its derivatives. The application should work in any distribution which had a web server and PHP in a version newer than 5.3.0, but it is not guaranteed.
 
-__ Dependencies __
+** Dependencies **
 
 * Apache or Nginx
 * PHP 5.3.0 or higher
