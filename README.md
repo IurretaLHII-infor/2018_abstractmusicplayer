@@ -74,7 +74,7 @@ Click the photo to go to the video
 ### Images
 
 Register
-<img src="https://github.com/IurretaLHII-infor/2018_abstractmusicplayer/blob/master/media/register.jpeg" width="200">
+</br><img src="https://github.com/IurretaLHII-infor/2018_abstractmusicplayer/blob/master/media/register.jpeg" width="200">
 
 Login
 
