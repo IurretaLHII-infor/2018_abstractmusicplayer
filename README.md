@@ -1,3 +1,20 @@
+<!--ts-->
+   * [gh-md-toc](#gh-md-toc)
+   * [Table of contents](#table-of-contents)
+   * [Installation](#installation)
+   * [Usage](#usage)
+      * [STDIN](#stdin)
+      * [Local files](#local-files)
+      * [Remote files](#remote-files)
+      * [Multiple files](#multiple-files)
+      * [Combo](#combo)
+      * [Auto insert and update TOC](#auto-insert-and-update-toc)
+   * [Tests](#tests)
+   * [Dependency](#dependency)
+<!--te-->
+
+
+
 # Abstract Music Player
 
 Abstract Music Player is a project developed because we felt music aplications didn't recommend music which was really similar to the one you were listening to, recommending artists which were enclosed in a set genre similar to the one you were listening to. Nowadays, in a world which is ever changing, we feel that this kind of approach to recommending music is old fashioned, and something that could be improved uppon, as such, we tried to develop a project, consisting of server, web page and application which did this in a better way to what it was done before. 
