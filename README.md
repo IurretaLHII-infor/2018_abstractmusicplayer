@@ -1,19 +1,11 @@
-<!--ts-->
-   * [gh-md-toc](#gh-md-toc)
-   * [Table of contents](#table-of-contents)
-   * [Installation](#installation)
-   * [Usage](#usage)
-      * [STDIN](#stdin)
-      * [Local files](#local-files)
-      * [Remote files](#remote-files)
-      * [Multiple files](#multiple-files)
-      * [Combo](#combo)
-      * [Auto insert and update TOC](#auto-insert-and-update-toc)
-   * [Tests](#tests)
-   * [Dependency](#dependency)
-<!--te-->
 
-
+- [Abstract Music Player](#abstract-music-player)
+  * [Server](#server)
+    + [Instructions](#instructions)
+- [Aplication](#aplication)
+    + [Video](#video)
+    + [Images](#images)
+  * [License](#license)
 
 # Abstract Music Player
 
@@ -78,7 +70,7 @@ composer install
 
 Once all of this is done, the API should have everything necesary to run, for further configuration, go to abstract-doc inside abstract-server, where you can find our apache configuration
 
-# Aplication
+## Aplication
 
 All the code of the aplication is hosted in this repository, and can be viewed, revised and edited by anyone, bare in mind that the code is an early proof of concept. Here are some screenshots and videos of the aplication
 
@@ -129,5 +121,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
+
 
 
