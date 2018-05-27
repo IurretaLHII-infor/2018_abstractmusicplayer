@@ -75,7 +75,7 @@ Click the photo to go to the video
 
 Register
 
-![Register](https://raw.githubusercontent.com/username/IurretaLHII-infor/2018_abstractmusicplayer/tree/master/media/register.jpg)
+![Register](https://github.com/IurretaLHII-infor/2018_abstractmusicplayer/blob/master/media/register.jpeg)
 
 Login
 
