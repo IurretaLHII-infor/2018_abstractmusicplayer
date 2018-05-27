@@ -65,9 +65,8 @@ Once all of this is done, the API should have everything necesary to run, for fu
 
 All the code of the aplication is hosted in this repository, and can be viewed, revised and edited by anyone, bare in mind that the code is an early proof of concept. Here are some screenshots and videos of the aplication
 
-[![Click here to go to the video](http://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](http://www.youtube.com/watch?v=YOUTUBE_VIDEO_ID_HERE)
 
-[![Click here to go to the video](http://img.youtube.com/watch?v=VsHyZxDR2iM.jpg)](https://www.youtube.com/watch?v=VsHyZxDR2iM)
+[![Click here to go to the video](http://img.youtube.com/watch?v=VsHyZxDR2iM/0.jpg)](https://www.youtube.com/watch?v=VsHyZxDR2iM)
 
 
 ## License
