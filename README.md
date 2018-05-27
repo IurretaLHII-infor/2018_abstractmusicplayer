@@ -51,7 +51,15 @@ Once all the necesary packages and files to run the web are installed, we need t
 apt-get install composer
 ```
 
-We then move to the 
+We then move to the root of the web page, and install [php-jwt](https://github.com/firebase/php-jwt) using composer
+
+```bash
+cd /var/www
+composer require firebase/php-jwt 
+composer install
+```
+
+Once all of this is done, the API should have everything necesary to run, for further configuration, go to abstract-doc inside abstract-server, where you can find our apache configuration
 
 ## License
 
