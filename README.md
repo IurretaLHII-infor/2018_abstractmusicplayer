@@ -74,13 +74,20 @@ Click the photo to go to the video
 ### Images
 
 Register
-</br><img src="https://github.com/IurretaLHII-infor/2018_abstractmusicplayer/blob/master/media/register.jpeg" width="200">
+
+</br><img src="https://github.com/IurretaLHII-infor/2018_abstractmusicplayer/blob/master/media/register.jpeg" width="400">
 
 Login
 
+</br><img src="https://github.com/IurretaLHII-infor/2018_abstractmusicplayer/blob/master/media/login.jpeg" width="400">
+
 Menu
 
+</br><img src="https://github.com/IurretaLHII-infor/2018_abstractmusicplayer/blob/master/media/menu.jpeg" width="400">
+
 Player
+
+</br><img src="https://github.com/IurretaLHII-infor/2018_abstractmusicplayer/blob/master/media/player.jpeg" width="400">
 
 ## License
 
