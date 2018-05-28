@@ -15,9 +15,6 @@
 - [License](#license)
 - [Original Work](#original-work)
 
-<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
-
-
 # Abstract Music Player
 ## English
 Abstract Music Player is a project developed because we felt music aplications didn't recommend music which was really similar to the one you were listening to, recommending artists which were enclosed in a set genre similar to the one you were listening to. Nowadays, in a world which is ever changing, we feel that this kind of approach to recommending music is old fashioned, and something that could be improved uppon, as such, we tried to develop a project, consisting of server, web page and application which did this in a better way to what it was done before. 
@@ -95,19 +92,19 @@ Click the photo to go to the video
 
 Register
 
-</br><img src="https://gitlab.com/abstractmusic/AbstractMusicPlayer/blob/master/media/register.jpeg" width="500">
+</br><img src="media/register.jpeg" width="500">
 
 Login
 
-</br><img src="https://gitlab.com/abstractmusic/AbstractMusicPlayer/blob/master/media/login.jpeg" width="500">
+</br><img src="media/login.jpeg" width="500">
 
 Menu
 
-</br><img src="https://gitlab.com/abstractmusic/AbstractMusicPlayer/blob/master/media/menu.jpeg" width="500">
+</br><img src="media/menu.jpeg" width="500">
 
 Player
 
-</br><img src="https://gitlab.com/abstractmusic/AbstractMusicPlayer/blob/master/media/player.jpeg" width="500">
+</br><img src="media/player.jpeg" width="500">
 
 ## Euskera
 
@@ -186,19 +183,19 @@ Klikatu irudian bideoa ikusteko
 
 Erregistroa
 
-</br><img src="https://gitlab.com/abstractmusic/AbstractMusicPlayer/blob/master/media/register.jpeg" width="500">
+</br><img src="media/register.jpeg" width="500">
 
 Login-a
 
-</br><img src="https://gitlab.com/abstractmusic/AbstractMusicPlayer/blob/master/media/login.jpeg" width="500">
+</br><img src="media/login.jpeg" width="500">
 
 Menua
 
-</br><img src="https://gitlab.com/abstractmusic/AbstractMusicPlayer/blob/master/media/menu.jpeg" width="500">
+</br><img src="media/menu.jpeg" width="500">
 
 Erreproduktorea
 
-</br><img src="https://gitlab.com/abstractmusic/AbstractMusicPlayer/blob/master/media/player.jpeg" width="500">
+</br><img src="media/player.jpeg" width="500">
 
 
 # License
@@ -229,5 +226,5 @@ THE SOFTWARE.
 
 This project has been developed by Ander Areitio, Leire Barainka and Borja Turiel in 2018.
 
-This is the official home page for the project
+For the home page of the project, go [here](https://gitlab.com/abstractmusic/AbstractMusicPlayer)
 

@@ -9,6 +9,10 @@ systemctl restart apache2
 
 ##Honetaz gain, defektuz Apachek inode-a bueltatu dezake eskakizun batekin, honek arriskua izan dezake, beraz kendu egingo dugu
 
+##Geroago rewrite erabiliko dugu, beraz jada aktibatuko dugu
+
+sudo a2enmod rewrite
+
 ##Apache defektuz Apache erabiltzailearekin exekutatzen da. Guk, erabiltzaile berri bat sortuko dugu Apache erabiltzeko, pribilegio gutxirekin. Horretarako:
 
 groupadd torosentado
@@ -49,7 +53,8 @@ AllowOverride None
 ##Horretarako, gure VirtualHost-ean, hurrengoa jarriko dugu:
 
 <VirtualHost *:80>
-    RewriteEngine on                                                                                                                    RewriteCond %{SERVER_NAME} =abstractmusic.iurretalhi.eus                                                                            RewriteRule ^ https://%{SERVER_NAME}%{REQUEST_URI} [END,NE,R=permanent] 
+    RewriteEngine on                                                                                                                    
+    RewriteCond %{SERVER_NAME} =abstractmusic.iurretalhi.eus                                                                            
+    RewriteRule ^ https://%{SERVER_NAME}%{REQUEST_URI} [END,NE,R=permanent] 
 </VirtualHost>
 
-##Honek egingo duena da http moduan eskatzen duzuna https moduan bueltatu, adibidez, http://abstractmusic.iurretalhi.eus/songs.php eskatzen badugu, https://abstractmusic.iurretalhi.eus/songs.php-ra bidaliko gaitu
