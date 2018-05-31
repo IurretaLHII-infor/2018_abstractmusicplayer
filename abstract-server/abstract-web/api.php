@@ -910,7 +910,8 @@ function testimage(){
 
 function playsong($method, $request, $input, $table, $key){
 // connect to the mysql database
-$link = mysqli_connect('localhost', 'root', 'root', 'abstractapitest');
+$db = new MyDB(); 
+$link = $db->getDB();
 mysqli_set_charset($link,'utf8');
 
 
@@ -1287,3 +1288,4 @@ mysqli_close($link);
 //Show variable values 
 //var_dump($request, $key, $table, $columns, $values); 
 //die("im here");
+
